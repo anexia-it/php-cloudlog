@@ -37,7 +37,7 @@ use CloudLog\Client;
 $client = Client::create("index","ca.pem","cert.pem","cert.key");
 
 // Alternative CloudLog client (http)
-$client = new Client::createHttp("index","token");
+$client = Client::createHttp("index","token");
 
 // Push simple message
 $client->pushEvents("message");
