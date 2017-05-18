@@ -10,10 +10,19 @@ Currently it only provides to push events to CloudLog. Querying is possible in a
 - php-rdkafka
 - librdkafka >= 0.9.1
 
-## Install
+## Get started
 
 ```sh
-composer require anexia-it/php-cloudlog
+$ composer require anexia-it/php-cloudlog
+```
+
+composer.json
+```sh
+{
+    "require": {
+        "anexia-it/php-cloudlog": "^0.2.0"
+    }
+}
 ```
 
 ## Quickstart
