@@ -11,10 +11,19 @@ There are two possible connection type:
 - http client
 
 
-## Install
+## Get started
 
 ```sh
-composer require anexia-it/php-cloudlog
+$ composer require anexia-it/php-cloudlog
+```
+
+composer.json
+```sh
+{
+    "require": {
+        "anexia-it/php-cloudlog": "^0.2.0"
+    }
+}
 ```
 
 ## Quickstart
