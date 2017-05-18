@@ -80,7 +80,6 @@ class Client {
         $config->set("ssl.key.location", $this->keyFile);
 
         $producer = new Producer($config);
-        $producer->setLogLevel(7);
         $producer->addBrokers($this->brokers);
 
         $topicConfig = new TopicConf();
@@ -106,7 +105,6 @@ class Client {
         $timestamp = round(microtime(true)*1000);
         foreach($events as $event) {
             $event = $this->addMetadata($timestamp, $event, $meta);
-            echo "send event: ".$event."\n";
             $this->topic->produce(RD_KAFKA_PARTITION_UA, 0, $event);
         }
     }
