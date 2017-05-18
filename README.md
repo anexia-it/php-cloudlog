@@ -5,10 +5,11 @@ php-cloudlog is a client library for Anexia CloudLog.
 
 Currently it only provides to push events to CloudLog. Querying is possible in a future release.
 
-## Requirements
+There are two possible connection type:
+- directly connected for high throughput
+  - requires php-rdkafka (relies on librdkafka >= 0.9.1)
+- http client
 
-- php-rdkafka
-- librdkafka >= 0.9.1
 
 ## Install
 
@@ -24,7 +25,10 @@ composer require anexia-it/php-cloudlog
 use CloudLog\Client;
 
 // Init CloudLog client
-$client = new Client("index","ca.pem","cert.pem","cert.key");
+$client = Client::create("index","ca.pem","cert.pem","cert.key");
+
+// Alternative CloudLog client (http)
+$client = new Client::createHttp("index","token");
 
 // Push simple message
 $client->pushEvents("message");
