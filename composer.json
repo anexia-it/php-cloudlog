@@ -1,0 +1,13 @@
+{
+    "name": "anexia-it/php-cloudlog",
+    "description": "CloudLog PHP client library",
+    "type": "library",
+    "require-dev": {
+        "kwn/php-rdkafka-stubs": "^1.0"
+    },
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.6.0"
+    }
+}
