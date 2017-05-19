@@ -40,10 +40,36 @@ $client = Client::create("index","ca.pem","cert.pem","cert.key");
 $client = Client::createHttp("index","token");
 
 // Push simple message
-$client->pushEvents("message");
+$client->pushEvent("message");
 
-// Push document
-$client->pushEvents('{
+// Push document (multiple formats supported: object, assoc array, json string)
+
+// object
+class Event {
+    public $timestamp;
+    public $user;
+    public $message;
+    public $severity;
+}
+
+$event = new Event();
+$event->timestamp = 1495024205123;
+$event->user = "test";
+$event->severity = 1;
+$event->message = "My first CloudLog event";
+
+$client->pushEvent($event);
+
+// associative array
+$client->pushEvent([
+    "timestamp" => 1495024205123,
+    "user" => "test",
+    "severity" => 1,
+    "message" => "My first CloudLog event"
+]);
+
+// json string
+$client->pushEvent('{
   "timestamp": 1495024205123,
   "user": "test",
   "severity": 1,

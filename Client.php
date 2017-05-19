@@ -147,6 +147,14 @@ class Client {
     }
 
     /**
+     * Sends an events to CloudLog
+     * @param string|array $event
+     */
+    public function pushEvent($event) {
+        $this->pushEvents([$event]);
+    }
+
+    /**
      * Sends one or more events to CloudLog
      * @param string|array $events
      */
@@ -238,14 +246,25 @@ class Client {
      * @return string
      */
     private function addMetadata($timestamp, $event, $meta) {
-        $data = @json_decode($event, true);
+
+        $data = $event;
+
+        if(is_object($event)) {
+            $data = (array)$event;
+        }
+        if(!is_array($data)) {
+            $data = @json_decode($event, true);
+        }
         if(!is_array($data)) {
             $data = array(
-                "message" => $event,
-                "timestamp" => $timestamp
+                "message" => $event
             );
         }
+        if(!isset($data["timestamp"])) {
+            $data["timestamp"] = $timestamp;
+        }
         $data = array_merge($data, $meta);
+
         return json_encode($data);
     }
 
