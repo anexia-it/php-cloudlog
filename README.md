@@ -21,7 +21,7 @@ composer.json
 ```sh
 {
     "require": {
-        "anexia-it/php-cloudlog": "^0.3.0"
+        "anexia-it/php-cloudlog": "<2.0.0"
     }
 }
 ```
