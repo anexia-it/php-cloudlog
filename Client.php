@@ -51,13 +51,13 @@ class Client {
      * Default brokers
      * @var string $brokers
      */
-    private $brokers = "anx-bdp-broker0401.bdp.anexia-it.com:443,anx-bdp-broker0402.bdp.anexia-it.com:443,anx-bdp-broker0403.bdp.anexia-it.com:443";
+    private $brokers = "kafka0401.bdp.anexia-it.com:8443";
 
     /**
      * Default api
      * @var string $api
      */
-    private $api = "https://anx-bdp-api0401.bdp.anexia-it.com";
+    private $api = "https://api0401.bdp.anexia-it.com";
 
     /**
      * @var bool $isHttp
