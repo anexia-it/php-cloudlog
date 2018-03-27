@@ -65,10 +65,15 @@ class Client {
     private $isHttp = false;
 
     /**
+     * @var string $hostname
+     */
+    private $hostname = "";
+
+    /**
      * Default constructor
      */
     private function __construct() {
-
+        $this->hostname = gethostname();
     }
 
     /**
@@ -164,7 +169,7 @@ class Client {
         }
         $meta = array(
             "cloudlog_client_type" => $this->isHttp ? "php-client-http" : "php-client-kafka",
-            "cloudlog_source_host" => gethostname()
+            "cloudlog_source_host" => $this->hostname
         );
         $timestamp = round(microtime(true)*1000);
 
